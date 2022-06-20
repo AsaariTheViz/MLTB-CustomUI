@@ -14,9 +14,9 @@ def mirror_status(update, context):
         if len(download_dict) == 0:
             currentTime = get_readable_time(time() - botStartTime)
             free = get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)
-            message = 'Nothing To Do !\n_______________'
-            message += f"\n\n<b>CPU        :</b> {cpu_percent()}%\n<b>SSD        :</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}" \
-                       f"\n<b>RAM       :</b> {virtual_memory().percent}%\n<b>UPTM      :</b> {get_readable_time(time() - botStartTime)}"
+            message = 'Tak Ada Yang Mirror !\n___________________________'
+            message += f"\n\n<b>CPU :</b> {cpu_percent()}%\n<b>SSD :</b> {get_readable_file_size(disk_usage(DOWNLOAD_DIR).free)}" \
+                       f"\n<b>RAM :</b> {virtual_memory().percent}%\n<b>UPTM :</b> {get_readable_time(time() - botStartTime)}"
             reply_message = sendMessage(message, context.bot, update.message)
             Thread(target=auto_delete_message, args=(context.bot, update.message, reply_message)).start()
             return
